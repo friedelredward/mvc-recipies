@@ -13,12 +13,26 @@ public class Ingredient {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String description;
-    private BigDecimal account;
+    private BigDecimal amount;
     @ManyToOne
     private Recipe recipe;
-    @OneToOne
+    @OneToOne(fetch = FetchType.EAGER)
     private UnitOfMeasure uom;
 
+    public Ingredient() {
+    }
+    public Ingredient(String description, BigDecimal amount, UnitOfMeasure uom) {
+        this.description = description;
+        this.amount = amount;
+        this.uom = uom;
+    }
+
+    public Ingredient(String description, BigDecimal amount, UnitOfMeasure uom, Recipe recipe) {
+        this.description = description;
+        this.amount = amount;
+        this.uom = uom;
+        this.recipe = recipe;
+    }
     public Long getId() {
         return id;
     }
@@ -35,12 +49,12 @@ public class Ingredient {
         this.description = description;
     }
 
-    public BigDecimal getAccount() {
-        return account;
+    public BigDecimal getAmount() {
+        return amount;
     }
 
-    public void setAccount(BigDecimal account) {
-        this.account = account;
+    public void setAmount(BigDecimal account) {
+        this.amount = account;
     }
 
     public Recipe getRecipe() {
