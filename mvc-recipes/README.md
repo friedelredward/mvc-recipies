@@ -60,3 +60,10 @@ spring.jpa.hibernate.ddl-auto=create-drop
 - Also please make sure slq statements match given model -.-
 - also h2 unless in server mode doesnt accept more than 1 conection:
 so conecting it **from the IDE might not work at all**.
+
+--------
+### Finders (_fyndByProperty_name()_)
+- Remember it's a naming convention and the plumbing and the hardlifting
+ will be done for us by the framework in the background.
+- We simply declare it in the interface. no sql needed (spring data jpa for the win)
+- check CategoryRepository
