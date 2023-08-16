@@ -16,7 +16,9 @@ public class Ingredient {
     private BigDecimal account;
     @ManyToOne
     private Recipe recipe;
-
+    /** ingredient is owning side */
+    @OneToOne(cascade = CascadeType.ALL)
+    private UnitOfMeasure uom;
 
     public Long getId() {
         return id;
