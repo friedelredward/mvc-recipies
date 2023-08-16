@@ -15,6 +15,7 @@ public class UnitOfMeasure {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String uom;
+    private String description;
     @OneToOne
     private Ingredient ingredient;
 
@@ -32,6 +33,14 @@ public class UnitOfMeasure {
 
     public void setUom(String uom) {
         this.uom = uom;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     public Ingredient getIngredient() {

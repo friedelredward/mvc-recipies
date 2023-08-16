@@ -1,4 +1,4 @@
-
+# JPA
 ### Entity diagram 1.0
 
 Please remember:
@@ -30,3 +30,33 @@ public class Recipe {
 ```
 - will result in only 1 mapped table
 ![img_2.png](img_2.png)
+
+------------------
+
+### Spring datasource initialization
+[docs pdf](https://github.com/friedelredward/mvc-recipies/blob/main/DatabaseInitializationWithSpring.pdf)
+- DDL : data def language
+- DML : data manipulation langguage
+- hibernate feature: `spring.jpa.hibernate.dl-auto` : none, validate(prod)(fails on smth missing), 
+  - update(use with caution, this not good for prod),
+  - create(initial db creation)
+  - create-drop(when app down the db with get dropped)(used for h2, hsql, and derby in mem DB)
+  - can b autocreated if in import.sql
+- as alternative there is Spring DataSource initializer(conflict
+with hibernate ddl-auto!!! beware)
+- by default Sboot wil load from `schema.sql` and ``data.sql``
+
+```properties
+#Important note : application.properties::
+#very necesary because default behavior has changed.
+#init sql scripts now execute before hibernate init so theres no db
+spring.jpa.defer-datasource-initialization=true
+spring.sql.init.mode=always
+spring.datasource.generate-unique-name=false
+## do not use in prod"!!!
+spring.jpa.hibernate.ddl-auto=create-drop
+
+```
+- Also please make sure slq statements match given model -.-
+- also h2 unless in server mode doesnt accept more than 1 conection:
+so conecting it **from the IDE might not work at all**.
