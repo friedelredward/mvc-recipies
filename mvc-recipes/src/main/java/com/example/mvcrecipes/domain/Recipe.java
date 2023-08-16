@@ -2,6 +2,9 @@ package com.example.mvcrecipes.domain;
 
 import jakarta.persistence.*;
 
+import java.util.HashSet;
+import java.util.Set;
+
 /**
  * Created by r.edward on {16/08/2023}
  * very important set this as entity
@@ -18,6 +21,10 @@ public class Recipe {
     private String source;
     private String url;
     private String directions;
+    /** And we make the recipe the owning side so we:
+     * can delete any ingredient without recipe, but not the other way.*/
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "recipe")
+    private Set<Ingredient> ingredients;
     //todo add
 //    private Difficulty difficulty;
     /** this creates a blob field in the db
@@ -110,5 +117,13 @@ public class Recipe {
 
     public void setNotes(Notes notes) {
         this.notes = notes;
+    }
+
+    public Set<Ingredient> getIngredients() {
+        return ingredients;
+    }
+
+    public void setIngredients(Set<Ingredient> ingredients) {
+        this.ingredients = ingredients;
     }
 }
