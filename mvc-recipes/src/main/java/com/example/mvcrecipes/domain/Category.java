@@ -1,6 +1,7 @@
 package com.example.mvcrecipes.domain;
 
 import jakarta.persistence.*;
+import lombok.*;
 
 import java.util.Set;
 
@@ -9,6 +10,8 @@ import java.util.Set;
  * ojo EAch Many2Many creates a new table
  * so we have to configure ir properly
  */
+@Data
+@EqualsAndHashCode(exclude = {"recipies"})
 @Entity
 public class Category {
     @Id
@@ -19,35 +22,4 @@ public class Category {
     @ManyToMany(mappedBy = "categories")
     private Set<Recipe> recipies;
 
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-    public Set<Recipe> getRecipies() {
-        return recipies;
-    }
-
-    public void setRecipies(Set<Recipe> recipies) {
-        this.recipies = recipies;
-    }
 }

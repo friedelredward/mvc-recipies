@@ -67,3 +67,4 @@ so conecting it **from the IDE might not work at all**.
  will be done for us by the framework in the background.
 - We simply declare it in the interface. no sql needed (spring data jpa for the win)
 - check CategoryRepository
+
