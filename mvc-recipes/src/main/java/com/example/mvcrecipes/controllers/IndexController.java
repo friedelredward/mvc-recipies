@@ -1,7 +1,5 @@
 package com.example.mvcrecipes.controllers;
 
-import com.example.mvcrecipes.repos.CategoryRepository;
-import com.example.mvcrecipes.repos.UnitOfMeasureRepository;
 import com.example.mvcrecipes.services.RecipeService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
@@ -14,13 +12,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Slf4j
 @Controller
 public class IndexController {
-    private final CategoryRepository categoryRepository;
-    private final UnitOfMeasureRepository  unitOfMeasureRepository;
+//    private final CategoryRepository categoryRepository;
+//    private final UnitOfMeasureRepository  unitOfMeasureRepository;
     private final RecipeService recipeService;
 
-    public IndexController(CategoryRepository categoryRepository, UnitOfMeasureRepository unitOfMeasureRepository, RecipeService recipeService) {
-        this.categoryRepository = categoryRepository;
-        this.unitOfMeasureRepository = unitOfMeasureRepository;
+    public IndexController(/*CategoryRepository categoryRepository, UnitOfMeasureRepository unitOfMeasureRepository,*/ RecipeService recipeService) {
+//        this.categoryRepository = categoryRepository;
+//        this.unitOfMeasureRepository = unitOfMeasureRepository;
         this.recipeService = recipeService;
     }
 
