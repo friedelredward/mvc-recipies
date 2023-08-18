@@ -116,3 +116,8 @@ Don't need to bring the full spring context for controllers
 ### Circle CI integration
 
 - it alone creates the necesarry webhook + deploy ssh key
+
+---------
+
+### JUnit5
+[IntroToJUnit5 pdf](https://github.com/friedelredward/mvc-recipies/blob/main/IntroToJUnit5.pdf)
