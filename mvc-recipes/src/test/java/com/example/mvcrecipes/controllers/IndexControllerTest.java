@@ -9,6 +9,8 @@ import org.mockito.MockitoAnnotations;
 import org.springframework.ui.Model;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.mockito.ArgumentMatchers.anySet;
+import static org.mockito.ArgumentMatchers.eq;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 
@@ -38,7 +40,7 @@ class IndexControllerTest {
         String result= indexController.getIndexPage(model);
 
         assertEquals(result, "index");
-
-        verify(model , times(1)).addAttribute("recipes", recipeService.getRecipes());
+        verify(recipeService, times(1)).getRecipes();
+        verify(model , times(1)).addAttribute(eq("recipes"), anySet());
     }
 }
