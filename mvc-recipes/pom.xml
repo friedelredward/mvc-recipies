@@ -71,7 +71,7 @@
                         <include>**/*IT.java</include>
                     </includes>
                     <additionalClasspathElements>
-                        <additionalClasspathElement>${basedir}/target/classes</additionalClasspathElement>
+                        <additionalClasspathElement>${basedir}/target/test-classes</additionalClasspathElement>
                     </additionalClasspathElements>
                     <parallel>none</parallel>
                 </configuration>
