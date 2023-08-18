@@ -1,6 +1,7 @@
 package com.example.mvcrecipes.domain;
 
 import jakarta.persistence.*;
+import lombok.*;
 
 /**
  * Created by r.edward on {16/08/2023}
@@ -9,45 +10,13 @@ import jakarta.persistence.*;
  *  future
  *  @Note:it's not hardcoded like an ENUM
  */
+@Data
 @Entity
 public class UnitOfMeasure {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String uom;
-    private String description;
-    @OneToOne
+    @ManyToOne
     private Ingredient ingredient;
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getUom() {
-        return uom;
-    }
-
-    public void setUom(String uom) {
-        this.uom = uom;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-    public Ingredient getIngredient() {
-        return ingredient;
-    }
-
-    public void setIngredient(Ingredient ingredient) {
-        this.ingredient = ingredient;
-    }
+    private String description;
 }

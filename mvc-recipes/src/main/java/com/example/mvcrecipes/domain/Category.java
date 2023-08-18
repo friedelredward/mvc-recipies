@@ -11,6 +11,7 @@ import java.util.Set;
  * so we have to configure ir properly
  */
 @Data
+@EqualsAndHashCode(exclude = {"recipies"})
 @Entity
 public class Category {
     @Id
