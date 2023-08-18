@@ -5,23 +5,31 @@ import com.example.mvcrecipes.services.RecipeService;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.ArgumentCaptor;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
+import org.springframework.test.context.junit.jupiter.SpringExtension;
+import org.springframework.test.web.servlet.MockMvc;
+import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
+import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.ui.Model;
 
 import java.util.HashSet;
 import java.util.Set;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.mockito.ArgumentCaptor.*;
+import static org.mockito.ArgumentCaptor.forClass;
 import static org.mockito.ArgumentMatchers.anySet;
 import static org.mockito.ArgumentMatchers.eq;
 import static org.mockito.Mockito.*;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.view;
 
 /**
  * Created by r.edward on {18/08/2023}
  */
+@ExtendWith(SpringExtension.class)
 class IndexControllerTest {
     private AutoCloseable closeable;
     IndexController indexController;
@@ -70,5 +78,15 @@ class IndexControllerTest {
         verify(model , times(1)).addAttribute(eq("recipes"), setArgumentCaptor.capture());
         Set<Recipe> setIncontroller= setArgumentCaptor.getValue();
         assertEquals(2, setIncontroller.size());
+    }
+
+    //still a unit test for MVC!!!!!
+    @Test
+    void testMockMVC() throws Exception {
+        MockMvc mockMvc= MockMvcBuilders.standaloneSetup(indexController).build();
+
+        mockMvc.perform(MockMvcRequestBuilders.get("/"))
+                .andExpect(status().isOk())
+                .andExpect(view().name("index"));
     }
 }

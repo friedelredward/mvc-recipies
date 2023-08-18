@@ -68,3 +68,18 @@ so conecting it **from the IDE might not work at all**.
 - We simply declare it in the interface. no sql needed (spring data jpa for the win)
 - check CategoryRepository
 
+### mock mvc
+Don't need to bring the full spring context for controllers
+````MockMvc mockMvc= MockMvcBuilders.standaloneSetup(indexController).build();````
+
+````java
+    //still a unit test for MVC!!!!! pej
+    @Test
+    void testMockMVC() throws Exception {
+        MockMvc mockMvc= MockMvcBuilders.standaloneSetup(indexController).build();
+
+        mockMvc.perform(MockMvcRequestBuilders.get("/"))
+                .andExpect(status().isOk())
+                .andExpect(view().name("index"));
+    }
+````
