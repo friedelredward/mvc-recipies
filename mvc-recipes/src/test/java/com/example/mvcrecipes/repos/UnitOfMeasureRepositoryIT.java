@@ -18,11 +18,13 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
  * this method impl was generated so might wanna test it with integration (full)
  * this is integration testing since we wire up the context once and
  *  * also we init the db.
- *  Here is where we could assume and test aall data from data.sql
+ *  Here is where we could assume and test all data from data.sql
+ * @note: ...IT for integration testing convetion set in
+ * with the _maven-failsafe-plugin_
  */
 @RunWith(SpringRunner.class)
 @DataJpaTest
-class CategoryRepositoryTest {
+class UnitOfMeasureRepositoryIT {
 
     @Autowired UnitOfMeasureRepository unitOfMeasureRepository;
 

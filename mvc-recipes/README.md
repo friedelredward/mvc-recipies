@@ -83,3 +83,36 @@ Don't need to bring the full spring context for controllers
                 .andExpect(view().name("index"));
     }
 ````
+
+### Maven Failsafe plugin
+
+- Needed to be configured with the IT convention for integration test to be run
+````yaml
+<plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-failsafe-plugin</artifactId>
+                <configuration>
+                    <includes>
+                        <include>**/*IT.java</include>
+                    </includes>
+                    <additionalClasspathElements>
+                        <additionalClasspathElement>${basedir}/target/classes</additionalClasspathElement>
+                    </additionalClasspathElements>
+                    <parallel>none</parallel>
+                </configuration>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>integration-test</goal>
+                            <goal>verify</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+````
+- means that in the verify step will execute the integration tests
+- also the path is necessary because a bug, so it sees all tests.
+
+### Circle CI integration
+
+- it alone creates the necesarry webhook + deploy ssh key
