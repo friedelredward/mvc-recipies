@@ -121,3 +121,8 @@ Don't need to bring the full spring context for controllers
 
 ### JUnit5
 [IntroToJUnit5 pdf](https://github.com/friedelredward/mvc-recipies/blob/main/IntroToJUnit5.pdf)
+
+----
+
+### WebJars 
+- Jars files of popular web components
