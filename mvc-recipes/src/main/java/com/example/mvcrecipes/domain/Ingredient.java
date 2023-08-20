@@ -12,7 +12,7 @@ import java.util.Set;
  * Created by r.edward on {16/08/2023}
  */
 @Data
-@EqualsAndHashCode(exclude = {"recipe"})
+@EqualsAndHashCode(exclude = {"recipe", "uoms"})
 @Entity
 public class Ingredient {
     @Id
@@ -30,13 +30,22 @@ public class Ingredient {
     public Ingredient(String description, BigDecimal amount, UnitOfMeasure uom) {
         this.description = description;
         this.amount = amount;
-        this.uoms.add(uom);
+        addUom(uom);
     }
     public Ingredient(String description, BigDecimal amount, UnitOfMeasure uom, Recipe recipe) {
         this.description = description;
         this.amount = amount;
-        this.uoms.add(uom);
+        addUom(uom);
         this.recipe = recipe;
     }
 
+    public void addUom(UnitOfMeasure uom){
+        uom.setIngredient(this);
+        uoms.add(uom);
+    }
+
+    public void removeUom(UnitOfMeasure uom){
+        uom.setIngredient(null);
+        uoms.remove(uom);
+    }
 }
