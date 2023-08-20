@@ -126,3 +126,7 @@ Don't need to bring the full spring context for controllers
 
 ### WebJars 
 - Jars files of popular web components
+
+### COmmand object for databinding in spring forms
+- Command Pojos need a converter for translating data from entities to commands.
+
