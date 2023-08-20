@@ -5,13 +5,13 @@ Please remember:
 * [JDL STUDIO](https://www.jhipster.tech/jdl-studio/)
 * or intelij show entity relationships diagram:
 
-![img.png](img.png)
+![img.png](mvc-recipes/img.png)
 
 ----------------
 ### @manyToMany
 - creates new db for each annotation so w have to config it.
 - please note singulars and plurals
-![img_1.png](img_1.png)
+![img_1.png](mvc-recipes/img_1.png)
 
 ```java
 @Entity
@@ -29,7 +29,7 @@ public class Recipe {
     private Set<Recipe> recipies;
 ```
 - will result in only 1 mapped table
-![img_2.png](img_2.png)
+![img_2.png](mvc-recipes/img_2.png)
 
 ------------------
 
@@ -129,5 +129,7 @@ Don't need to bring the full spring context for controllers
 
 ### COmmand object for databinding in spring forms
 - Command Pojos need 2 converters for translating data from entities to commands and back.
+  pej: ![img.png](img.png)
 - Beware nested converters: a converter for a nested entity will use nested object converter!!
+pej: ![img_1.png](img_1.png)
 
