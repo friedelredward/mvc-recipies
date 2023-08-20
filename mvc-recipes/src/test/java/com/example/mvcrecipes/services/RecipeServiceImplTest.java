@@ -26,7 +26,7 @@ class RecipeServiceImplTest {
 
     @BeforeEach
     void setUp() {
-//        MockitoAnnotations.initMocks(this);
+//  deprecated      MockitoAnnotations.initMocks(this);
         closeable = MockitoAnnotations.openMocks(this);
         recipeService= new RecipeServiceImpl(recipeRepository);
     }
@@ -58,5 +58,11 @@ class RecipeServiceImplTest {
         //then
         assertEquals(recipes.size(), 1);
         verify(recipeRepository, times(1)).findAll();
+    }
+
+    @Test
+    void findById() {
+        recipeService.findById(1L);
+        verify(recipeRepository).findById(anyLong());
     }
 }

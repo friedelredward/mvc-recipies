@@ -55,6 +55,27 @@
             <artifactId>junit</artifactId>
             <scope>test</scope>
         </dependency>
+        <!--WEBJARS-->
+
+        <dependency>
+            <groupId>org.webjars</groupId>
+            <artifactId>bootstrap</artifactId>
+            <version>3.4.0</version>
+            <!--actual-->
+            <!--<version>5.3.1</version>-->
+        </dependency>
+        <!--Bs has it's own dependency and WILL BRING
+        it's own version of jquery-->
+<!--        <dependency>
+            <groupId>org.webjars</groupId>
+            <artifactId>jquery</artifactId>
+            <version>3.2.1</version>
+            &lt;!&ndash;actual&ndash;&gt;
+            &lt;!&ndash;<version>3.7.0</version>&ndash;&gt;
+        </dependency>-->
+
+        <!--NO_MOAR WEBJARS-->
+
     </dependencies>
 
     <build>

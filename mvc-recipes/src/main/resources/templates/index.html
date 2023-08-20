@@ -3,15 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <link rel="shortcut icon" type="image/x-icon" th:href="@{/resources/images/favicon.png}">
-    <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <!-- Latest compiled and minified CSS CDN.
+     thymeleaf will favor and inject webjar!!-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
+          crossorigin="anonymous"
+          th:href="@{/webjars/bootstrap/3.4.0/css/bootstrap.min.css}">
     <!-- Latest compiled and minified JavaScript -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js" integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V" crossorigin="anonymous"></script>
+    <script src="/webjars/jquery/1.11.1/jquery.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js"
+            crossorigin="anonymous"
+            th:src="@{/webjars/bootstrap/3.4.0/js/bootstrap.min.js}"></script>
     <title>Index for Recipes</title>
 </head>
 <body>
-    <h1>Recipe List redward</h1>
-    <div class="card w-50 mt-1">
+    <h1>Recipe List redward BS</h1>
+   <!-- <div class="card w-50 mt-1">
         <div class="card-body">
             <h2 class="card-title">My Recipes!</h2>
             <div class="table-responsive" th:if="${not #lists.isEmpty(recipes)}">
@@ -37,9 +44,9 @@
                 </table>
             </div>
         </div>
-    </div>
+    </div>-->
 
-<!--    <div class="container-fluid mt-1">
+    <div class="container-fluid mt-1">
         <div class="row">
             <div class="col-md-6 col-md-offset-3">
                 <div class="panel panel-primary">
@@ -54,6 +61,7 @@
                                 <tr>
                                     <th>ID</th>
                                     <th>Description</th>
+                                    <th>View</th>
                                 </tr>
                                 </thead>
                                 <tr th:remove="all">
@@ -65,8 +73,11 @@
                                     <td th:text="${recipe.description}">Tasty Goodnees 2</td>
                                 </tr>
                                 <tr th:each="recipe : ${recipes}">
+                                    <!--typing for thymeleaf-->
+                                    <!--/*@thymesVar id="recipe" type="guru.springframework.domain.Recipe"*/-->
                                     <td th:text="${recipe.id}">334</td>
                                     <td th:text="${recipe.description}">Tasty Goodnees 3</td>
+                                    <td><a href="#" th:href="@{'/recipe/show/' + ${recipe.id}}">View</a></td>
                                 </tr>
                             </table>
                         </div>
@@ -74,6 +85,6 @@
                 </div>
             </div>
         </div>
-    </div>-->
+    </div>
 </body>
 </html>
