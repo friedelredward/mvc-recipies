@@ -1,6 +1,5 @@
 package com.example.mvcrecipes.commands;
 
-import com.example.mvcrecipes.domain.Ingredient;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -13,6 +12,6 @@ import lombok.Setter;
 @NoArgsConstructor
 public class UnitOfMeasureCommand {
     private Long id;
-    private Ingredient ingredient;
+    private IngredientCommand ingredient;
     private String description;
 }

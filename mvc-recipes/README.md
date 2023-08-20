@@ -128,5 +128,6 @@ Don't need to bring the full spring context for controllers
 - Jars files of popular web components
 
 ### COmmand object for databinding in spring forms
-- Command Pojos need a converter for translating data from entities to commands.
+- Command Pojos need 2 converters for translating data from entities to commands and back.
+- Beware nested converters: a converter for a nested entity will use nested object converter!!
 

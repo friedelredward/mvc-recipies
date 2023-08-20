@@ -1,7 +1,6 @@
 package com.example.mvcrecipes.commands;
 
 import com.example.mvcrecipes.domain.Recipe;
-import com.example.mvcrecipes.domain.UnitOfMeasure;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -21,5 +20,5 @@ public class IngredientCommand {
     private String description;
     private BigDecimal amount;
     private Recipe recipe;
-    private Set<UnitOfMeasure> uoms= new HashSet<>();
+    private Set<UnitOfMeasureCommand> uoms= new HashSet<>();
 }

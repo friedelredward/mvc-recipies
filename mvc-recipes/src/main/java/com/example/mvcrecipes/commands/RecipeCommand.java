@@ -1,9 +1,6 @@
 package com.example.mvcrecipes.commands;
 
-import com.example.mvcrecipes.domain.Category;
 import com.example.mvcrecipes.domain.Difficulty;
-import com.example.mvcrecipes.domain.Ingredient;
-import com.example.mvcrecipes.domain.Notes;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -26,9 +23,9 @@ public class RecipeCommand {
     private String source;
     private String url;
     private String directions;
-    private Set<Category> categories= new HashSet<>();
-    private Set<Ingredient> ingredients= new HashSet<>();
+    private Set<CategoryCommand> categories= new HashSet<>();
+    private Set<IngredientCommand> ingredients= new HashSet<>();
     private Byte[] image;
     private Difficulty difficulty;
-    private Notes notes;
+    private NotesCommand notes;
 }
