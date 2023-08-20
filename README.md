@@ -1,4 +1,6 @@
-# JPA
+
+# Recipies example architecture app
+- [![CircleCI](https://dl.circleci.com/status-badge/img/gh/friedelredward/mvc-recipies/tree/main.svg?style=svg)](https://dl.circleci.com/status-badge/redirect/gh/friedelredward/mvc-recipies/tree/main)
 ### Entity diagram 1.0
 
 Please remember:
