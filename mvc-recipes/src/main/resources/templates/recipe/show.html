@@ -13,7 +13,6 @@
 
     <!-- Latest compiled and minified JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"
-
             crossorigin="anonymous" th:src="@{/webjars/bootstrap/3.4.0/js/bootstrap.min.js}"></script>
 </head>
 <body>
@@ -90,12 +89,6 @@
                     <div class="panel-body">
                         <div class="row">
                             <div class="col-md-12">
-                                <ul>
-                                    <li th:remove="all">1 Cup of milk</li>
-                                    <li th:each="unitOfMeasure : ${ingredient.getUoms()}"
-                                        th:text="${unitOfMeasure.getDescription()}"
-                                    >testDescription ingredient</li>
-                                </ul>
                                 <ul>
                                     <li th:remove="all">1 Cup of milk</li>
                                     <li th:remove="all">1 Teaspoon of chocolate</li>

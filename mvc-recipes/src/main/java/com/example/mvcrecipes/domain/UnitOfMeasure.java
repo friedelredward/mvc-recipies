@@ -10,7 +10,10 @@ import lombok.*;
  *  future
  *  @Note:it's not hardcoded like an ENUM
  */
-@Data
+
+@Getter
+@Setter
+@NoArgsConstructor
 @Entity
 public class UnitOfMeasure {
     @Id
